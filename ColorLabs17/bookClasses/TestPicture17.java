@@ -29,12 +29,15 @@ public class TestPicture17
 
      //relative path
      Picture apic = new Picture("images\\beach.jpg");
-     Picture ferris1 = new Picture("images/2000 ferris wheel2.jpg");
-     Picture ferris2 = new Picture("images/2000 ferris wheel2.jpg");
-     Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
+     Picture ferris1 = new Picture("images/download.jpg");
+     Picture ferris2 = new Picture("images/download.jpg");
+     Picture ferris3 = new Picture("images/download.jpg");
+	 Picture kate = new Picture("images/KatieFancy.jpg");
 
+/*
      apic.explore();
      ferris1.explore();
+*/
 
      //makes an array of pixels
      Pixel[] pixels;
@@ -42,7 +45,21 @@ public class TestPicture17
      pixels = ferris1.getPixels();
 
      //how many pixels or how large array
-    System.out.println("This is a large array"+pixels.length  );
+    System.out.println("This is a large array"+pixels.length);
+
+	int maxRed;
+	int maxGreen;
+	int maxBlue;
+	for (Pixel spot : pixels)
+	{
+			maxRed = spot.getRed();
+			maxGreen = spot.getGreen();
+			maxBlue = spot.getBlue();
+			spot.setRed(255);
+			spot.setGreen(255);
+			spot.setBlue(255);
+	}
+	ferris1.explore();
 
 
     /*
@@ -84,6 +101,7 @@ public class TestPicture17
   * @param none
   * @return none
   */
+  /*
   int red = 0;
     for (Pixel pixelObj : pixels)
         {
@@ -95,7 +113,7 @@ public class TestPicture17
 			}
         }
     ferris1.explore();
-
+*/
 /**/
  /**
   * Method to reduce red from picture by a factor of n
@@ -114,14 +132,36 @@ final double  FACTOR = .5;
         //System.out.println(value);
 
         //decrease the red value by 50%
-
+		value *= FACTOR;
         //set the red value of the current pixel to the new value
-
+		pixelObj.setRed(value);
 
     }
+    for (Pixel spot : pixels)
+    {
+		value = spot.getRed();
+		spot.setRed((int)(value * 0.25));
+		spot.setGreen((int)(value * 0.1));
+		spot.setBlue((int)(value * 0.2));
+	}
     // use new picture when changing or it will make changes to
     // pic you already changed
     ferris1.explore();
+
+    //every picture must have new array set of pixels
+    Pixel [] pixels2;
+    pixels2 = ferris2.getPixels();
+    int redValue, greenValue, blueValue;
+
+    for (Pixel spot2 : pixels2)
+    {
+		redValue = spot2.getRed();
+		greenValue = spot2.getGreen();
+		blueValue = spot2.getBlue();
+		//make opposite with range of 0 to 255.
+		spot2.setColor(new Color(255-redValue,255-greenValue,255-blueValue));
+	}
+
     ferris2.explore();
 
   /**/
