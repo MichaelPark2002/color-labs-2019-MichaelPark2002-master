@@ -8,9 +8,9 @@ public class SheparFaireyLab
 	{
 
 		 //relative path
-         Picture pog1 = new Picture("images/download.jpg");
-		 Picture pog2 = new Picture("images/download.jpg");
-		 Picture pog3 = new Picture("images/download.jpg");
+         Picture pog1 = new Picture("images/mrpark.jpg");
+		 Picture pog2 = new Picture("images/mrpark.jpg");
+		 Picture pog3 = new Picture("images/mrpark.jpg");
 		 //makes array of pixels
 		 Pixel[] pixels;
 		 Pixel[] pixels2;
